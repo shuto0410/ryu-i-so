@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" media="all" href="css/style.css">
+    <title>RD Commuting | Sample</title>
 </head>
 <body>
-    Hello
+    <header class="header">
+        <a href="#" class="logo"><img src="images/logo.png" alt="logo"></a>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="#" class="signup">sign up</a></li>
+                <li><a href="#" class="user">user</a></li>
+            </ul> 
+        </nav>
+    </header>
+    <hr>
+    <section class="timer">
+        <select id="select_station">
+            <option value="0">高坂駅行き</option>
+            <option value="1">北坂戸駅行き</option>
+            <option value="2">熊谷駅行き</option>
+        </select>
+        <p>発車まで</p>
+        <div class = "station_list">
+            <section class="station" id="a01">
+                <p id="time">00:05:48</p>
+                <div class="next_bus">
+                    <p>次発まで</p>
+                    <p id="next_time">00:10:48</p>
+                </div>
+            </section>
+            <section class="station" id="a02">
+                <p id="time">00:07:48</p>
+                <div class="next_bus">
+                    <p>次発まで</p>
+                    <p id="next_time">00:14:48</p>
+                </div>
+            </section>
+            <section class="station" id="a03">
+                <p id="time">00:10:48</p>
+                <div class="next_bus">
+                    <p>次発まで</p>
+                    <p id="next_time">00:20:48</p>
+                </div>
+            </section>
+        </div>
+    </section>
+    <hr>
+    <section class="bound_for">
+        行き先
+    </section>
+<script src="js/script.js"></script>
 </body>
 </html>
