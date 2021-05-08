@@ -4,6 +4,11 @@
 
 html {
     background-color: #32465c;
+}
+
+body{
+    font-family: sans-serif;
+    white-space: nowrap;
     color: #ffffff;
 }
 
@@ -16,7 +21,6 @@ header {
     width: 90%;
     padding: 0px 0px 10px;
     margin: 0px 5% 0px;
-    color: #ffffff;
     top: 0;
     display: flex;
     align-items: center;
@@ -163,14 +167,14 @@ section{
     grid-template-columns: repeat(3, 1fr);
     border-bottom: 2px solid #ffffff;
     text-align: center;
-    font-size: 24px;
+    font-size: clamp(18px, 3vw, 60px);
     align-items: flex-end;
 }
 
 .top_left{
 }
 .top_center{
-    font-size: 40px;
+    font-size: clamp(28px, 6vw, 60px);
 }
 .top_right{
 }
@@ -180,22 +184,56 @@ section{
     grid-row: 2/4;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 0px;
+    font-size: clamp(15px, 3vw, 60px);
 }
 
 .bottom_left{
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
+   display: grid;
+   float: left;
+   text-align: center;
 }
+
+    #left_train{
+        grid-row: 1/2;
+        margin: 5% auto 5% 10%;
+    }
+
+    .left_train_time{
+        float: left;
+        align-items: flex-end;
+    }
+
+    .left_train_time p{
+        display: inline-block;
+        margin: 0 0 0 5%;
+    }
+
+    #b_l_time{
+        font-size: clamp(24px, 8vw, 60px);
+    }
 
 .bottom_right{
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+   float: left;
+   text-align: center;
 }
 
-#left_train{
-    grid-row: 1/2;
-}
+    #right_train{
+        grid-row: 1/2;
+        margin: 5% auto 5% 10%;
+    }
 
-#left_train_time{
-    grid-row: 2/4;
-}
+    .right_train_time{
+        float: left;
+        align-items: flex-end;
+    }
+
+    .right_train_time p{
+        display: inline-block;
+        margin: 0 0 0 5%;
+    }
+
+    #b_r_time{
+        font-size: clamp(24px, 8vw, 60px);
+    }
