@@ -3,17 +3,24 @@
  }
 
 html {
-    background-color: #2D445B;
+    background-color: #32465c;
     color: #ffffff;
 }
 
+hr{
+    border-style: solid;
+    width: 90%;
+}
+
 header {
-    width: 100%;
-    padding: 10px 4% 10px;
+    width: 90%;
+    padding: 0px 0px 10px;
+    margin: 0px 5% 0px;
     color: #ffffff;
     top: 0;
     display: flex;
     align-items: center;
+    border-bottom: 2px solid #ffffff;
 }
 header img{
     display: block;
@@ -28,7 +35,7 @@ header ul{
 
 header li{
     margin: 0 0 0 15px;
-    font-size: 16px;
+    font-size: 100%;
 }
 
 .header_nav{
@@ -36,7 +43,6 @@ header li{
 }
 
 .signup{
-    color: lightsalmon;
     text-decoration: none;
     padding: 2px 8px 3px 8px;
     border-radius: 12px;
@@ -50,54 +56,61 @@ header li{
     border: 2px solid #ffffff;
 }
 
-hr{
-    width: 95%;
-    border-style: solid;
-}
-
 a{
     color: #ffffff;
 }
 
-.timer p{
-    font-size: 22px;
-    display: inline-block;
-    vertical-align: top;
-}
-
 section{
     width: 90%;
-    margin: 10px 5% 0px;
+    margin: 20px 5% 10px;
     position: static;
-    float: left;
 }
 
-select{
-    width: 200px;
-    font-size: 24px;
-    padding-right: 1em;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    border: none;
-    outline: none;
-    background: transparent;
-    background-image: none;
-    box-shadow: none;
-    -webkit-appearance: none;
-    appearance: none;
-    color: #ffffff;
+/*--------------- タイマー -------------------*/
+.timer{
+    display: grid;
+    grid-auto-rows: repeat(4, 1fr);
+}
+
+.timer_top{
+    grid-row: 1/2;
+    float: left;
+    display: flex;
+    align-items: flex-end;
+    /*margin: 20px 0 10px;*/
 }
 
 #select_station {
+    width: 180px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    color: #ffffff;
+    font-size: 20px;
     background-image: url(../images/arrow-down.png);
     background-repeat: no-repeat;
     background-size: 26px 14px;
     background-position: right 10px center;
-    position: relative;
     border-radius: 8px;
     border: 2px solid #ffffff;
-    padding: 8px 38px 8px 8px;
-  }
+    padding: 6px 20px 6px 6px;
+    display: inline-block;
+}
+
+.timer_top p{
+    display: inline-block;
+    line-height: 100%;
+    margin: 0 0 0 4%;
+    font-size: 20px;
+}
+
+.timer_center{
+    grid-row: 2/4;
+    margin: 20px 0;
+}
 
 .station {
     margin: 0px 5% 0px;
@@ -112,24 +125,77 @@ select{
 #time{
     margin: 0;
     display: inline-block;
-    font-size: clamp(90px, 14vw, 500px);
+    font-size: clamp(64px, 14vw, 500px);
 }
 
-.next_bus{
-    display: inline-block;
-    margin: 0 0 0 40%;
+.timer_bottom{
+    grid-row: 4/5;
+    display: flex;
+    align-items: flex-end;
 }
 
-.next_bus p{
-    float: left;
-    margin: 0 0 0 20px;
+.timer_bottom p{
+    margin: 0 0 0 auto;
 }
 
 #next_time{
+    line-height: 100%;
     font-size: clamp(30px, 4vw, 200px);
+    margin: 0 0 0 30px;
+}
+/*------------------------------------------------*/
+
+
+/*--------------------- 駅 -----------------------*/
+.bound_for{
+    border: 2px solid white;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: repeat(3, 1fr);
 }
 
-.bound_for{
-    height: 100px;
-    border: 2px solid white;
+.top{
+    width: 90%;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 2px solid #ffffff;
+    text-align: center;
+    font-size: 24px;
+    align-items: flex-end;
+}
+
+.top_left{
+}
+.top_center{
+    font-size: 40px;
+}
+.top_right{
+}
+
+.bottom{
+    grid-column: 1/3;
+    grid-row: 2/4;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.bottom_left{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.bottom_right{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#left_train{
+    grid-row: 1/2;
+}
+
+#left_train_time{
+    grid-row: 2/4;
 }

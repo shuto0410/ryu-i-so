@@ -17,41 +17,50 @@
             </ul> 
         </nav>
     </header>
-    <hr>
     <section class="timer">
-        <select id="select_station">
-            <option value="0">高坂駅行き</option>
-            <option value="1">北坂戸駅行き</option>
-            <option value="2">熊谷駅行き</option>
-        </select>
-        <p>発車まで</p>
-        <div class = "station_list">
+        <div class="timer_top">
+            <select id="select_station">
+                <option value="0">高坂駅行き</option>
+                <option value="1">北坂戸駅行き</option>
+                <option value="2">熊谷駅行き</option>
+            </select>
+            <p>発車まで</p>
+        </div>
+        <div class="timer_center">
             <section class="station" id="a01">
                 <p id="time">00:05:48</p>
-                <div class="next_bus">
-                    <p>次発まで</p>
-                    <p id="next_time">00:10:48</p>
-                </div>
             </section>
             <section class="station" id="a02">
                 <p id="time">00:07:48</p>
-                <div class="next_bus">
-                    <p>次発まで</p>
-                    <p id="next_time">00:14:48</p>
-                </div>
             </section>
             <section class="station" id="a03">
                 <p id="time">00:10:48</p>
-                <div class="next_bus">
-                    <p>次発まで</p>
-                    <p id="next_time">00:20:48</p>
-                </div>
             </section>
+        </div>
+        <div class="timer_bottom">
+            <p>次発まで</p>
+            <p id="next_time">00:20:48</p>
         </div>
     </section>
     <hr>
     <section class="bound_for">
-        行き先
+        <section class="top">
+            <div class="top_left">寄居方面</div>
+            <div class="top_center">高坂駅</div>
+            <div class="top_right">池袋方面</div>
+        </section>
+        <section class="bottom">
+            <div class="bottom_left">
+                <p id="left_train">準急　森林公園行</p>
+                <p id="left_train_time">13:00</p>
+                <p>発</p>
+            </div>
+            <div class="bottom_right">
+                <p id="right_train">急行　池袋行</p>
+                <p id="right_train_time">13:00</p>
+                <p>発</p>
+            </div>
+        </section>
     </section>
 <script src="js/script.js"></script>
 </body>
