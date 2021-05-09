@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+ }
+
+html {
+    background-color: #32465c;
+}
+
+body{
+    font-family: sans-serif, Meiryo, Arial, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans";
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+p{
+    display: inline-block;
+}
+
+.login{
+    align-items: center;
+    margin: 80px 5% 5% 5%;
+    text-align: center;
+}
+
+    .title{
+        font-size: 36px;
+        margin: 0 0 10px 0;
+        padding: 0 0 0 5px;
+        line-height: 100%;
+    }
+
+    form{
+        margin: 10px 10% 20px 10%;
+    }
+        input{
+            margin: 5px 0;
+            background-color: #ffffff;
+            color: #32465c;
+            border-color: #32465c;
+            border-style: none;
+            border-radius: 8px;
+            padding: 5px 16px;
+            font-size: 16px;
+            outline: 0;
+        }
+    
+        .sign_up{
+            font-size: 20px;
+            margin: 26px 0 0 0;
+            line-height: 100%;
+        }
+
+        .btn{
+            padding: 2px 10px;
+            font-size: 16px;
+        }
+
+.separate{
+    margin: 0 5%;
+    display: flex;
+    align-items: center;
+}
+
+    .separate:before,
+    .separate:after {
+        content: "";
+        height: 1px;
+        flex-grow: 1;
+        background-color: #ffffff;
+    }
+
+    .separate:before {
+        margin-right: 10px;
+    }
+
+    .separate:after {
+        margin-left: 10px;
+    }
