@@ -1,16 +1,25 @@
 const select = document.getElementById('select_station');
-select.addEventListener('change', function(){
+
+select.addEventListener('change', function() {
     var stations = document.getElementsByClassName('station');
     var val = this.value;
-    for(var i = 0; i < stations.length; i++){
+    for (var i = 0; i < stations.length; i++) {
         stations[i].style.display = (i === parseInt(val)) ? 'block' : 'none';
     }
 });
 
-window.onload = function(){
+window.onload = function() {
     var stations = document.getElementsByClassName('station');
     var val = 0;
-    for(var i = 0; i < stations.length; i++){
+    for (var i = 0; i < stations.length; i++) {
         stations[i].style.display = (i === parseInt(val)) ? 'block' : 'none';
     }
 }
+
+time();
+
+function time() {
+    var now = new Date();
+    document.getElementById("time").innerHTML = now.toLocaleTimeString();
+}
+setInterval('time()', 1000);
