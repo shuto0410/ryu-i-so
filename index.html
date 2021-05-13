@@ -6,54 +6,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="all" href="css/style.css">
+    <link rel="stylesheet" media="all" href="css/style2.css">
     <link rel="icon" type="image/x-icon" href="images/icon.PNG">
     <title>RD Commuting | Sample</title>
 </head>
 
 <body>
     <header class="header">
-        <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
+        <a href="index.html" class="header_logo"><img src="images/logo.png" alt="logo"></a>
         <nav class="header_nav">
             <ul>
-                <li><a href="login/login.html" class="user">Login</a></li>
+                <li class="header_login user"><a href="login/login.html">Login</a></li>
+                <li class="header_user user"><a href="login/user.html" ><img src="images/user.png" alt="user"></a></li>
             </ul>
         </nav>
     </header>
     <div class="container">
 
-        <section class="timer">
-            <div class="timer_top">
-                <select id="select_station">
-                    <option value="0">高坂駅行き　</option>
-                    <option value="1">北坂戸駅行き　</option>
-                    <option value="2">熊谷駅行き　</option>
+        <section class="bus_timer">
+            <div class="bus_timer_top">
+                <select id="bus_timer_select">
+                    <option value="0">高坂駅行き</option>
+                    <option value="1">北坂戸駅行き</option>
+                    <option value="2">熊谷駅行き</option>
                     <option value="3">鴻巣駅行き</option>
                 </select>
                 <p>発車まで</p>
             </div>
-            <div class="timer_center">
-                <section class="station" id="a01">
-                    <p id="time">00:05:48</p>
+            <div class="bus_timer_center">
+                <section class="bus_timer_station" id="takasaka">
+                    <p class="bus_timer_time">00:05:48</p>
                 </section>
-                <section class="station" id="a02">
-                    <p id="time">00:07:48</p>
+                <section class="bus_timer_station" id="kitasakado">
+                    <p class="bus_timer_time">00:07:48</p>
                 </section>
-                <section class="station" id="a03">
-                    <p id="time">00:10:48</p>
+                <section class="bus_timer_station" id="kumagaya">
+                    <p class="bus_timer_time">00:10:48</p>
                 </section>
-                <section class="station" id="a04">
-                    <p id="time">00:11:11</p>
+                <section class="bus_timer_station" id="kounosu">
+                    <p class="bus_timer_time">00:11:11</p>
                 </section>
             </div>
-            <div class="timer_bottom">
+            <div class="bus_timer_bottom">
                 <p>次発まで</p>
-                <p id="next_time">00:20:48</p>
+                <p id="bus_timer_next_time">00:20:48</p>
             </div>
         </section>
 
-        <hr>
+        <hr class="separator">
 
+        <section class="bus_schedule">
+            <p>大学発</p>
+            <p>高坂駅行き</p>
+        </section>
         <section class="bound_for">
             <section class="top">
                 <div class="top_left">寄居方面</div>
