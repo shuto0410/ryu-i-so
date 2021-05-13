@@ -1,4 +1,4 @@
-const select = document.getElementById('bus_timer_select');
+const select = document.querySelector(".bus_timer_select");
 
 select.addEventListener('change', function() {
     var stations = document.getElementsByClassName('bus_timer_station');

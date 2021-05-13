@@ -23,10 +23,10 @@
     </header>
     <div class="container">
 
-        <div class="bus">
-            <section class="bus_timer">
+        <section class="bus">
+            <div class="bus_timer">
                 <div class="bus_timer_top">
-                    <select id="bus_timer_select">
+                    <select class="bus_timer_select">
                         <option value="0">高坂駅行き</option>
                         <option value="1">北坂戸駅行き</option>
                         <option value="2">熊谷駅行き</option>
@@ -35,28 +35,28 @@
                     <p>発車まで</p>
                 </div>
                 <div class="bus_timer_center">
-                    <section class="bus_timer_station" id="takasaka">
+                    <div class="bus_timer_station" id="takasaka">
                         <p class="bus_timer_time">00:05:48</p>
-                    </section>
-                    <section class="bus_timer_station" id="kitasakado">
+                    </div>
+                    <div class="bus_timer_station" id="kitasakado">
                         <p class="bus_timer_time">00:07:48</p>
-                    </section>
-                    <section class="bus_timer_station" id="kumagaya">
+                    </div>
+                    <div class="bus_timer_station" id="kumagaya">
                         <p class="bus_timer_time">00:10:48</p>
-                    </section>
-                    <section class="bus_timer_station" id="kounosu">
+                    </div>
+                    <div class="bus_timer_station" id="kounosu">
                         <p class="bus_timer_time">00:11:11</p>
-                    </section>
+                    </div>
                 </div>
                 <div class="bus_timer_bottom">
                     <p>次発まで</p>
-                    <p id="bus_timer_next_time">00:20:48</p>
+                    <p class="bus_timer_next_time">00:20:48</p>
                 </div>
-            </section>
+            </div>
 
             <div class="horizontal_line"></div>
 
-            <section class="bus_schedule">
+            <div class="bus_schedule">
                 <p>大学発</p>
                 <p>高坂駅行き</p>
                 <table class="bus_schedule_table">
@@ -69,20 +69,20 @@
                         <td>11&nbsp;16</td>
                     </tr>
                 </table>
-            </section>
-        </div>
-        
+            </div>
+        </section>
+
         <div class="vertical_line"></div>
 
-        <div class="train">
-            <section class="departure_station">
-                <section class="departure_station_top">
+        <section class="train">
+            <div class="departure_station">
+                <div class="departure_station_top">
                     <div class="line_direction">寄居方面</div>
                     <div class="station_name">高坂駅</div>
                     <div class="line_direction">池袋方面</div>
-                </section>
+                </div>
 
-                <section class="bottom">
+                <div class="bottom">
                     <div class="bottom_left">
                         <p id="left_train">準急　森林公園行</p>
                         <div class="left_train_time">
@@ -97,15 +97,17 @@
                             <p>発</p>
                         </div>
                     </div>
-                </section>
-            </section>
-        </div>
+                </div>
+            </div>
+
+            <div class="horizontal_line"></div>
+        </section>
 
         <div class="vertical_line"></div>
 
-        <div class="via_station">
+        <section class="via_station">
             sample
-        </div>
+        </section>
 
     </div>
     <script src="js/script.js"></script>
