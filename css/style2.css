@@ -8,7 +8,7 @@ html{
 
 body{
     font-family: sans-serif, Arial, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans";
-    white-space: nowrap;
+    /* white-space: nowrap; */
     color: #ffffff;
 }
 
@@ -65,3 +65,35 @@ header ul{
 }
 
 /*-------------------------------------------------*/
+
+.container{
+    display: flex;
+    margin: 0px 20px;
+}
+
+.container div{
+}
+
+.horizontal_line{
+    background-color: #ffffff;
+    width: 100%;
+    height: 1px;
+}
+
+.vertical_line{
+    background-color: #ffffff;
+    width: 1px;
+    margin: 0 auto;
+}
+
+.bus{
+    width: 30%;
+}
+
+.train{
+    width: 30%;
+}
+
+.via_station{
+    width: 30%;
+}
