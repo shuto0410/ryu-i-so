@@ -90,9 +90,13 @@ header ul{
     margin: 0 auto;
 }
 
+.outer_hl{
+    display: none;
+}
+
 /*---------------------- バス ----------------------*/
 .bus{
-    width: 30%;
+    width: 36%;
     overflow: auto;
 }
 
@@ -135,7 +139,8 @@ header ul{
 
 .bus_timer_time{
     margin: 30px auto;
-    font-size: 6em;
+    /* font-size: 6em; */
+    font-size: clamp(6em, 7vw, 150px);
 }
 
 .bus_timer_bottom{
@@ -155,20 +160,88 @@ header ul{
 
 /*---------------------- 電車 ----------------------*/
 .train{
-    width: 30%;
+    width: 36%;
     overflow: auto;
 }
 /*-------------------------------------------------*/
 
 /*---------------------- 経由駅 ----------------------*/
-.via_station{
-    width: 30%;
+.route{
+    width: 20%;
     overflow: auto;
 }
 /*---------------------------------------------------*/
 
-@media screen and (min-width : 500px) and (max-width : 600px){ 
-    .vertical_line{
+@media screen and (max-width : 800px){ 
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .bus{
+        width: 100%;
+    }
+    .bus_timer_time{
+        margin: 30px auto;
+        font-size: clamp(58px, 18vw, 200px);
+    }
+    .bus_timer_next_time{
+        font-size: clamp(20px, 8vw, 100px);
+    }
+    #hl01{
+        display: block;
+    }
+    .train{
+        width: 100%;
+    }
+    #vl01{
         display: none;
+    }
+    #hl02{
+        display: block;
+    }
+    .route{
+        width: 100%;
+    }
+    #vl02{
+        display: none;
+    }
+}
+
+@media screen and (min-width : 801px) and (max-width : 1400px){ 
+    .container{
+        display: grid;
+        grid-template-columns: 48% 4% 48%;
+        grid-template-rows: 1fr 50px 1fr;
+    }
+    .bus{
+        width: 100%;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .bus_timer_time{
+        margin: 30px auto;
+        font-size: clamp(5em, 10vw, 8em);
+    }
+    .train{
+        grid-column: 3/4;
+        grid-row: 1/2;
+        width: 100%;
+    }
+    #vl01{
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    #vl02{
+        display: none;
+    }
+    #hl01{
+        display: block;
+        width: 100%;
+        grid-column: 1/4;
+        grid-row: 2/3;
+    }
+    .route{
+        grid-column: 1/2;
+        grid-row: 3/4;
     }
 }
