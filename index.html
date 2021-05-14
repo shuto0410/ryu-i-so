@@ -132,30 +132,36 @@
         <section class="train">
             <div class="departure_station">
                 <div class="departure_station_top">
-                    <div class="line_direction">寄居方面</div>
+                    <div class="line_direction" id="line_left">寄居方面</div>
                     <div class="station_name">高坂駅</div>
-                    <div class="line_direction">池袋方面</div>
+                    <div class="line_direction" id="line_right">池袋方面</div>
                 </div>
 
-                <div class="bottom">
-                    <div class="bottom_left">
-                        <p id="left_train">準急　森林公園行</p>
-                        <div class="left_train_time">
-                            <p id="b_l_time">13:00</p>
-                            <p>発</p>
+                <div class="horizontal_line"></div>
+
+                <div class="train_time">
+                    <div class="train_left">
+                        <p class="train_type" id="train_left_type">準急　森林公園行</p>
+                        <div class="train_time_time">
+                            <p class="train_departure_time" id="left_time">13:00</p>
+                            <span>発</span>
                         </div>
                     </div>
-                    <div class="bottom_right">
-                        <p id="right_train">急行　池袋行</p>
-                        <div class="right_train_time">
-                            <p id="b_r_time">13:00</p>
-                            <p>発</p>
+                    <div class="train_right">
+                        <p class="train_type" id="train_right_type">急行　池袋行</p>
+                        <div class="train_time_time">
+                            <p class="train_departure_time" id="right_time">13:00</p>
+                            <span>発</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="horizontal_line"></div>
+
+            <div class="train_schedule">
+                sample
+            </div>
         </section>
 
         <div class="vertical_line" id="vl02"></div>

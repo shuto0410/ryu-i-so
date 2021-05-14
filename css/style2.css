@@ -205,6 +205,70 @@ header ul{
     width: 36%;
     overflow: auto;
 }
+
+.departure_station{
+    border: 1px solid white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    padding: 26px 5% 4% 5%;
+}
+
+.departure_station_top{
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    text-align: center;
+}
+
+.departure_station .horizontal_line{
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 2/3;
+    margin: 10px auto;
+}
+
+.departure_station_top div{
+    display: inline-block;
+    margin: auto auto 0 auto;
+    line-height: 100%;
+}
+
+.station_name{
+    font-size: clamp(2.2em, 2.6vw, 4em);
+}
+
+.line_direction{
+    font-size: clamp(1.4em, 1.6vw, 2em);
+}
+
+.train_time{
+    grid-column: 1/3;
+    grid-row: 3/4;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.train_type{
+    margin: 10% auto 10px 10%;
+    font-size: clamp(1.2em, 1.4vw, 3em);
+}
+
+.train_departure_time{
+    margin: 10px auto 0 15%;
+    font-size: clamp(3em, 3.4vw, 4em);
+    display: inline-block;
+    line-height: 100%;
+}
+
+.train_time_time span{
+    display: inline-block;
+    line-height: 100%;
+    font-size: clamp(1.2em, 1.4vw, 3em);
+}
 /*-------------------------------------------------*/
 
 /*---------------------- 経由駅 ----------------------*/
@@ -245,6 +309,19 @@ header ul{
         margin: 0 0 0 auto;
         font-size: 1em;
     }
+
+    .train{
+        width: 36%;
+        overflow: auto;
+        font-size: 0.8em;
+    }
+    .train_type{
+        font-size: clamp(1em, 3.6vw, 4em);
+    }
+    .train_departure_time{
+        font-size: clamp(2.6em, 9vw, 6em);
+    }
+
     #hl01{
         display: block;
     }
@@ -284,6 +361,19 @@ header ul{
         grid-column: 3/4;
         grid-row: 1/2;
         width: 100%;
+    }
+    .station_name{
+        font-size: clamp(2em, 3.6vw, 4em);
+    }
+    
+    .line_direction{
+        font-size: clamp(1.2em, 2vw, 2em);
+    }
+    .train_type{
+        font-size: clamp(1em, 2vw, 1.6em);
+    }
+    .train_departure_time{
+        font-size: clamp(2.6em, 5vw, 3.6em);
     }
     #vl01{
         grid-column: 2/3;
