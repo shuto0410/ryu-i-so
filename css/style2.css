@@ -74,7 +74,7 @@ header ul{
     height: 100%;
 }
 
-.container div{
+.container p{
 }
 
 .horizontal_line{
@@ -97,7 +97,7 @@ header ul{
 /*---------------------- バス ----------------------*/
 .bus{
     width: 36%;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .bus_timer{
@@ -129,8 +129,10 @@ header ul{
     align-items: flex-end;
 }
 
-.bus_timer_top p{
+.bus_timer_top span{
     margin: 0 0 0 16px;
+    font-size: 1.2em;
+    line-height: 100%;
 }
 
 .bus_timer_center{
@@ -139,7 +141,6 @@ header ul{
 
 .bus_timer_time{
     margin: 30px auto;
-    /* font-size: 6em; */
     font-size: clamp(6em, 7vw, 150px);
 }
 
@@ -153,8 +154,49 @@ header ul{
     margin: 0 0 0 30px;
 }
 
+.bus_timer_bottom span{
+    line-height: 100%;
+    display: inline-block;
+    margin: 0 0 0 auto;
+    font-size: 1.2em;
+}
+
 .bus_timer_next_time{
     font-size: 2em;
+}
+
+.bus_schedule_title{
+    display: flex;
+}
+
+.bus_schedule p{
+    line-height: 100%;
+    margin: 10px 20px 0 0;
+    font-size: 1.4em;
+}
+
+.bus_schedule_table{
+    border-collapse: collapse;
+    margin: 20px auto 0 auto;
+    width: 90%;
+    table-layout: fixed;
+}
+
+.bus_schedule_table th{
+    border: 1px solid #ffffff;
+    width: 3em;
+    font-weight: normal;
+}
+
+.bus_schedule_table tr{
+    border: 1px solid #ffffff;
+}
+
+.bus_schedule_table td{
+    width: 100%;
+    border: 1px solid #ffffff;
+    white-space: normal;
+    padding: 0 10px;
 }
 /*-------------------------------------------------*/
 
@@ -184,8 +226,24 @@ header ul{
         margin: 30px auto;
         font-size: clamp(58px, 18vw, 200px);
     }
+    .bus_timer_top span{
+        margin: 0 0 0 10px;
+        font-size: 1em;
+        line-height: 100%;
+    }
     .bus_timer_next_time{
         font-size: clamp(20px, 8vw, 100px);
+    }
+    .bus_timer_bottom p{
+        line-height: 100%;
+        display: inline-block;
+        margin: 0 0 0 20px;
+    }
+    .bus_timer_bottom span{
+        line-height: 100%;
+        display: inline-block;
+        margin: 0 0 0 auto;
+        font-size: 1em;
     }
     #hl01{
         display: block;
