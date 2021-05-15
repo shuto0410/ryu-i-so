@@ -371,6 +371,28 @@ input[name="tab_btn"]{
     width: 20%;
     overflow: auto;
 }
+
+.route_stop{
+    width: 100%;
+    display: flex;
+    font-size: 1.6em;
+}
+
+.stop_station{
+    white-space: normal;
+    margin: 0;
+}
+
+.stop_time{
+    margin: 0 10% auto auto;
+}
+
+.route_vertical_line{
+    background-color: #ffffff;
+    width: 2px;
+    height: 16px;
+    margin: 5px auto 5px 40px;
+}
 /*---------------------------------------------------*/
 
 @media screen and (max-width : 800px){ 
@@ -503,6 +525,8 @@ input[name="tab_btn"]{
         margin: 40px 0;
     }
     .route{
+        width: 100%;
+        white-space: normal;
         grid-column: 1/2;
         grid-row: 3/4;
     }
