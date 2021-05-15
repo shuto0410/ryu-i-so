@@ -234,6 +234,14 @@ header ul{
     font-size: clamp(1.4em, 1.6vw, 2em);
 }
 
+#train_left_type{
+    color: #8caf89;
+}
+
+#train_right_type{
+    color: #e27a68;
+}
+
 .departure_station .horizontal_line{
     width: 100%;
     grid-column: 1/3;
