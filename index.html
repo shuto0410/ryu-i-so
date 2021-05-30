@@ -27,7 +27,7 @@
         <section class="bus">
             <div class="bus_timer">
                 <div class="bus_timer_top">
-                    <select class="bus_timer_select">
+                    <select class="bus_timer_select" id="bus_timer_select">
                         <option value="0">高坂駅行き</option>
                         <option value="1">北坂戸駅行き</option>
                         <option value="2">熊谷駅行き</option>
@@ -36,17 +36,8 @@
                     <span>発車まで</span>
                 </div>
                 <div class="bus_timer_center">
-                    <div class="bus_timer_station" id="takasaka">
-                        <p class="bus_timer_time">00:05:48</p>
-                    </div>
-                    <div class="bus_timer_station" id="kitasakado">
-                        <p class="bus_timer_time">00:07:48</p>
-                    </div>
-                    <div class="bus_timer_station" id="kumagaya">
-                        <p class="bus_timer_time">00:10:48</p>
-                    </div>
-                    <div class="bus_timer_station" id="kounosu">
-                        <p class="bus_timer_time">00:11:11</p>
+                    <div class="bus_timer_station">
+                        <p class="bus_timer_time" id="bus_timer_time">00:05:48</p>
                     </div>
                 </div>
                 <div class="bus_timer_bottom">
@@ -164,7 +155,7 @@
                 <div class="tab_wrap">
                     <input type="radio" name="tab_btn" id="tab1" checked>
                     <input type="radio" name="tab_btn" id="tab2">
-                
+
                     <div class="tab">
                         <label class="tab_label" for="tab1" id="tb1">寄居方面</label>
                         <label class="tab_label" for="tab2" id="tb2">池袋方面</label>
