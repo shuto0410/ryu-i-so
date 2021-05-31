@@ -41,8 +41,12 @@ function time() {
       var minutes = now.getMinutes();
       var seconds = now.getSeconds();
       hours = Number(bus[0]) - hours;
-      if(hours <= 9) hours = "0" + hours;
       minutes = Number(bus[1]) - minutes - 1;
+      if(minutes < 0){
+        hours = hours - 1;
+        minutes = minutes + 60;
+      }
+      if(0 <= hours && hours <= 9) hours = "0" + hours;
       if(minutes <= 9) minutes = "0" + minutes;
       seconds = 60 - seconds;
       if(seconds == 60) seconds = "00";
