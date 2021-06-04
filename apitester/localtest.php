@@ -24,7 +24,6 @@ else{
  $station_spell = $arr['ResultSet']['Point']['Station']['Yomi'];
  $station_address = $arr['ResultSet']['Point']['Prefecture']['Name'];
 }
-
 ?>
 
 <!DOCTYPE html>
