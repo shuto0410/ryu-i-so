@@ -1,5 +1,6 @@
 var bus_time;
 var bus_type;
+var next_bus;
 
 function updatedata(){
   var request = new XMLHttpRequest();
@@ -13,7 +14,14 @@ function updatedata(){
           data = request.response;
           console.log(data);
           bus_type = data.TypeCode;
-          bus_time = data.BusTime;
+          bus_time = data.BusTime[0];
+          next_time = data.BusTime[1];
+          if(bus_type == "3"){
+            document.querySelector("#bus_timer_time").innerHTML = "運休です";
+          }
+          else if(bus_type == "4"){
+            document.querySelector("#bus_timer_time").innerHTML = "特別ダイヤ";
+          }
       }
   }
 }
@@ -23,19 +31,17 @@ window.addEventListener("load", function(){
   document.getElementById("bus_timer_select").addEventListener("change", updatedata, false);
 });
 
+function timer(){
+  var recent = time(bus_time);
+  document.querySelector("#bus_timer_time").innerHTML = recent;
+  var next = time(next_time);
+  document.querySelector(".bus_timer_next_time").innerHTML = next;
+}
 
-time();
 
-function time() {
-    if(bus_type == "3"){
-      document.querySelector("#bus_timer_time").innerHTML = "運休です";
-    }
-    else if(bus_type == "4"){
-      document.querySelector("#bus_timer_time").innerHTML = "特別ダイヤです";
-    }
-
-    if(bus_time != null){
-      var bus = bus_time.split(':');
+function time(schedule_time) {
+    if(schedule_time != null){
+      var bus = schedule_time.split(':');
       var now = new Date();
       var hours = now.getHours();
       var minutes = now.getMinutes();
@@ -58,9 +64,9 @@ function time() {
         if(minutes <= 9) minutes = "0" + minutes;
 
         var countdown = hours + ':' + minutes + ':' + seconds;
-        document.querySelector("#bus_timer_time").innerHTML = countdown;
+        return countdown;
       }
     }
 }
 
-setInterval('time()', 1000);
+setInterval('timer()', 1000);

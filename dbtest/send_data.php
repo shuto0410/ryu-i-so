@@ -16,9 +16,10 @@ $res = mysqli_query($conn, "SELECT StationID, StationName FROM StationTable WHER
 $row = mysqli_fetch_array($res);
 $station = $row[1];
 
-$res = mysqli_query($conn, "SELECT StationID, BusTime FROM BusScheduleTable WHERE StationID=$selected_station and curtime() < Bustime and TypeCode=$type_code ORDER BY BusTime LIMIT 1");
-$row = mysqli_fetch_array($res);
-$bus_time = $row[1];
+$res = mysqli_query($conn, "SELECT StationID, BusTime FROM BusScheduleTable WHERE StationID=$selected_station and curtime() < Bustime and TypeCode=$type_code ORDER BY BusTime LIMIT 2");
+while($row = mysqli_fetch_array($res)){
+  $bus_time[] = $row[1];
+}
 
 $result = array("TypeCode" => $type_code, "ScheduleType" => $schedule_type, "StationName" => $station, "BusTime" => $bus_time);
 $jsonres = json_encode($result, JSON_UNESCAPED_UNICODE);
