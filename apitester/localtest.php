@@ -6,7 +6,7 @@ if ($_POST['station']) {
     $url = $url1 . $station;
     //echo $url;
     $json = file_get_contents($url);
-    $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    // $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
     //echo $json;
     //$arr = json_decode($json);
     //echo $arr->ResultSet->Point->Station->Yomi;
@@ -40,7 +40,7 @@ if ($_POST['station']) {
     <h1>駅情報APIテスト</h1>
     <p>
         [インプットデータ]
-    <form action="localtest.php" method="POST">
+    <form action="" method="POST">
         <label for="station">駅名 :</label>
         <input type="text" name="station" id="station">
         <button type="submit">送信</button>
