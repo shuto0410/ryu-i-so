@@ -53,7 +53,10 @@ function time(schedule_time) {
         minutes = minutes + 60;
       }
       seconds = 60 - seconds;
-      if(hours < 0 || minutes < 0 || seconds < 0) updatedata();
+      if(hours < 0 || minutes < 0 || seconds < 0){
+        updatedata();
+        return "00:00:00";
+      }
       else{
         if(0 <= hours && hours <= 9) hours = "0" + hours;
         if(seconds == 60){
