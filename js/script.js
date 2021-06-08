@@ -10,34 +10,40 @@ function updatedata(){
   request.send('select_station=' + encodeURIComponent(document.getElementById("bus_timer_select").value));
 
   request.onreadystatechange = function(){
-      if(request.readyState == 4 && request.status == 200){
-          data = request.response;
-          console.log(data);
-          bus_type = data.TypeCode;
-          bus_time = data.BusTime[0];
-          next_time = data.BusTime[1];
-          if(bus_type == "3"){
-            document.querySelector("#bus_timer_time").innerHTML = "運休です";
-          }
-          else if(bus_type == "4"){
-            document.querySelector("#bus_timer_time").innerHTML = "特別ダイヤ";
-          }
-      }
+    if(request.readyState == 4 && request.status == 200){
+      data = request.response;
+      console.log(data);
+      bus_type = data.TypeCode;
+      bus_time = data.BusTime[0];
+      next_time = data.BusTime[1];
+    }
   }
 }
 
-window.onload = updatedata;
-window.addEventListener("load", function(){
-  document.getElementById("bus_timer_select").addEventListener("change", updatedata, false);
-});
-
 function timer(){
-  var recent = time(bus_time);
-  document.querySelector("#bus_timer_time").innerHTML = recent;
-  var next = time(next_time);
-  document.querySelector(".bus_timer_next_time").innerHTML = next;
+  date = new Date();
+  var tmp = date.getDate();
+  if(today != tmp){
+    updatedata();
+  }
+  if(bus_type == "3"){
+    document.querySelector("#bus_timer_time").innerHTML = "運休です";
+  }
+  else if(bus_type == "4"){
+    document.querySelector("#bus_timer_time").innerHTML = "特別ダイヤ";
+  }
+  else{
+    if(bus_time == null){
+      document.querySelector("#bus_timer_time").innerHTML = "運行終了";
+    }
+    else{
+      var recent = time(bus_time);
+      document.querySelector("#bus_timer_time").innerHTML = recent;
+    }
+    var next = time(next_time);
+    document.querySelector(".bus_timer_next_time").innerHTML = next;
+  }
 }
-
 
 function time(schedule_time) {
     if(schedule_time != null){
@@ -70,6 +76,14 @@ function time(schedule_time) {
         return countdown;
       }
     }
+    else{
+      return "00:00:00";
+    }
 }
+
+window.onload = updatedata;
+window.addEventListener("load", function(){
+  document.getElementById("bus_timer_select").addEventListener("change", updatedata, false);
+});
 
 setInterval('timer()', 1000);
