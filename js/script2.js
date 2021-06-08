@@ -29,7 +29,9 @@ function clean_table(){
 }
 
 function write_schedule(){
-  document.querySelector(".destination").innerHTML = document.getElementById("bus_timer_select").value;
+  var obj = document.getElementById("bus_timer_select");
+  var idx = obj.selectedIndex;
+  document.querySelector(".destination").innerHTML = obj.options[idx].text;
   var station = document.getElementById("bus_timer_select").value;
   var table = document.querySelector(".bus_schedule_table");
   var hours_tmp = table.rows;
