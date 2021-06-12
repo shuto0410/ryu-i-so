@@ -1,8 +1,12 @@
 var bus_time;
 var bus_type;
 var next_bus;
+var date;
+var today;
 
 function updatedata(){
+  date = new Date();
+  today = date.getDate();
   var request = new XMLHttpRequest();
   request.open("POST", "dbtest/send_data.php", true);
   request.responseType = 'json';
