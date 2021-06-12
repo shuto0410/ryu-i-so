@@ -29,6 +29,9 @@ function clean_table(){
 }
 
 function write_schedule(){
+  var obj = document.getElementById("bus_timer_select");
+  var idx = obj.selectedIndex;
+  document.querySelector(".destination").innerHTML = obj.options[idx].text;
   var station = document.getElementById("bus_timer_select").value;
   var table = document.querySelector(".bus_schedule_table");
   var hours_tmp = table.rows;
@@ -37,7 +40,7 @@ function write_schedule(){
     hours[i] = hours_tmp[i].innerText.replace("\t", "");
   }
 
-  for(let i = 0; i < data.length; i++){
+  for(let i = 0; i < data.length - 1; i++){
     var time = data[i].split(':');
     var index = hours.indexOf(time[0]);
     table.rows[index].cells[1].insertAdjacentHTML('beforeend', time[1] + "&emsp;");

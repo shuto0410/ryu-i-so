@@ -13,6 +13,7 @@ $res = mysqli_query($conn, "SELECT BusTime FROM BusScheduleTable WHERE StationID
 while($row = mysqli_fetch_array($res)){
     $rows[] = $row[0];
 }
+$rows[] = null;
 // 検索機能に使用する可能性ありなので残しておく
 // $res = mysqli_query($conn, "SELECT StationID FROM StationTable");
 // $stations[] = array();
