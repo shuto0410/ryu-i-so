@@ -16,9 +16,6 @@
     <header class="header">
         <a href="index.html" class="header_logo"><img src="images/logo.png" alt="logo"></a>
         <nav class="header_nav">
-            <ul>
-                <li class="header_user user"><a href="login/user.html" ><img src="images/user.png" alt="user"></a></li>
-            </ul>
         </nav>
     </header>
     <div class="container">
