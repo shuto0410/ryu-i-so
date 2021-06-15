@@ -1,7 +1,12 @@
 var bus_time;
 var bus_type;
+var next_bus;
+var date;
+var today;
 
 function updatedata(){
+  date = new Date();
+  today = date.getDate();
   var request = new XMLHttpRequest();
   request.open("POST", "dbtest/send_data.php", true);
   request.responseType = 'json';
@@ -9,33 +14,44 @@ function updatedata(){
   request.send('select_station=' + encodeURIComponent(document.getElementById("bus_timer_select").value));
 
   request.onreadystatechange = function(){
-      if(request.readyState == 4 && request.status == 200){
-          data = request.response;
-          console.log(data);
-          bus_type = data.TypeCode;
-          bus_time = data.BusTime;
-      }
+    if(request.readyState == 4 && request.status == 200){
+      data = request.response;
+      console.log(data);
+      bus_type = data.TypeCode;
+      bus_time = data.BusTime[0];
+      next_time = data.BusTime[1];
+    }
   }
 }
 
-window.onload = updatedata;
-window.addEventListener("load", function(){
-  document.getElementById("bus_timer_select").addEventListener("change", updatedata, false);
-});
-
-
-time();
-
-function time() {
-    if(bus_type == "3"){
-      document.querySelector("#bus_timer_time").innerHTML = "運休です";
+function timer(){
+  date = new Date();
+  var tmp = date.getDate();
+  if(today != tmp){
+    updatedata();
+  }
+  if(bus_type == "3"){
+    document.querySelector("#bus_timer_time").innerHTML = "運休です";
+  }
+  else if(bus_type == "4"){
+    document.querySelector("#bus_timer_time").innerHTML = "特別ダイヤ";
+  }
+  else{
+    if(bus_time == null){
+      document.querySelector("#bus_timer_time").innerHTML = "運行終了";
     }
-    else if(bus_type == "4"){
-      document.querySelector("#bus_timer_time").innerHTML = "特別ダイヤです";
+    else{
+      var recent = time(bus_time);
+      document.querySelector("#bus_timer_time").innerHTML = recent;
     }
+    var next = time(next_time);
+    document.querySelector(".bus_timer_next_time").innerHTML = next;
+  }
+}
 
-    if(bus_time != null){
-      var bus = bus_time.split(':');
+function time(schedule_time) {
+    if(schedule_time != null){
+      var bus = schedule_time.split(':');
       var now = new Date();
       var hours = now.getHours();
       var minutes = now.getMinutes();
@@ -47,7 +63,10 @@ function time() {
         minutes = minutes + 60;
       }
       seconds = 60 - seconds;
-      if(hours < 0 || minutes < 0 || seconds < 0) updatedata();
+      if(hours < 0 || minutes < 0 || seconds < 0){
+        updatedata();
+        return "00:00:00";
+      }
       else{
         if(0 <= hours && hours <= 9) hours = "0" + hours;
         if(seconds == 60){
@@ -58,9 +77,17 @@ function time() {
         if(minutes <= 9) minutes = "0" + minutes;
 
         var countdown = hours + ':' + minutes + ':' + seconds;
-        document.querySelector("#bus_timer_time").innerHTML = countdown;
+        return countdown;
       }
+    }
+    else{
+      return "00:00:00";
     }
 }
 
-setInterval('time()', 1000);
+window.onload = updatedata;
+window.addEventListener("load", function(){
+  document.getElementById("bus_timer_select").addEventListener("change", updatedata, false);
+});
+
+setInterval('timer()', 1000);
