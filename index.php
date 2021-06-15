@@ -17,7 +17,6 @@
         <a href="index.html" class="header_logo"><img src="images/logo.png" alt="logo"></a>
         <nav class="header_nav">
             <ul>
-                <li class="header_login user"><a href="login/login.html">Login</a></li>
                 <li class="header_user user"><a href="login/user.html" ><img src="images/user.png" alt="user"></a></li>
             </ul>
         </nav>
