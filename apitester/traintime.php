@@ -44,6 +44,9 @@ if ($_POST['station']) {
         }
         print_r($destination_sql);
         echo "<br>";
+        $source_sql = "(\"".$arr2['ResultSet']['TimeTable']['Line']['Source']."\")";
+        print_r($source_sql);
+        echo "<br>";
         $count=0;
         foreach($arr2['ResultSet']['TimeTable']['HourTable'] as $train_time){
             foreach($train_time['MinuteTable'] as $train_time_Minute){
