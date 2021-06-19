@@ -376,28 +376,60 @@ input[name="tab_btn"]{
     width: 20%;
     overflow: auto;
 }
-
-.route_stop{
+#hidden_modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
     width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+  
+  .modalbg{
+    filter: blur(5px);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .modal_content {
+    box-sizing: border-box;
+    background-color: #32465c;
+    height: 40%;
+    margin: 16% 20% auto;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+  }
+  
+  .station_form{
+    width: 100%;
+    height: 20%;
     display: flex;
-    font-size: 1.6em;
-}
-
-.stop_station{
-    white-space: normal;
-    margin: 0;
-}
-
-.stop_time{
-    margin: 0 10% auto auto;
-}
-
-.route_vertical_line{
-    background-color: #ffffff;
-    width: 2px;
-    height: 16px;
-    margin: 5px auto 5px 40px;
-}
+  }
+  
+  .station_input_form,
+  .station_form p {
+    height: 26px;
+    margin: auto 10px;
+  }
+  
+  #close_modal {
+    color: #fff;
+    float: right;
+    font-size: 16px;
+  }
+  
+  #close_modal:hover,
+  #close_modal:focus {
+    color: #fff;
+    cursor: pointer;
+  }
 /*---------------------------------------------------*/
 
 @media screen and (max-width : 800px){ 

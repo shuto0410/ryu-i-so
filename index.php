@@ -182,30 +182,31 @@
         <div class="horizontal_line outer_hl" id="hl02"></div>
 
         <section class="route">
-            <div class="route_stop">
-                <div class="stop_station">高坂駅まで</div>
-                <div class="stop_time">00:17:52</div>
-            </div>
-            <div class="route_vertical_line"></div>
-            <div class="route_stop">
-                <div class="stop_station">池袋駅まで</div>
-                <div class="stop_time">00:53:52</div>
-            </div>
-            <div class="route_vertical_line"></div>
-            <div class="route_stop">
-                <div class="stop_station">東京駅まで</div>
-                <div class="stop_time">01:09:52</div>
-            </div>
-            <div class="route_vertical_line"></div>
-            <div class="route_stop">
-                <div class="stop_station">鎌倉駅まで</div>
-                <div class="stop_time">02:07:52</div>
+            <button id="open_modal">変更</button>
+
+            <div id="hidden_modal" class="hidden">
+                <div id="modalbg" class="modalbg"></div>
+                <div class="modal_content">
+                    <span id="close_modal" class="close">X</span>
+                    <div class="to_form station_form" id="to_form">
+                        <p>到着駅</p>
+                        <input type="text" maxlength="30" id="station_to" class="station_input_form" value="" placeholder="到着駅を入力" required>
+                    </div>
+                    <div class="via_form station_form" id="via_form">
+                        <p>経由駅</p>
+                        <input type="text" maxlength="30" id="station_via0" class="station_input_form" value="" placeholder="経由駅を入力">
+                    </div>
+                    <input type="button" value="+" onclick="addForm()">
+                    <input type="button" value="-" onclick="delForm()">
+                    <button type="submit" id="send_to_via">決定</button>
+                </div>
             </div>
         </section>
 
     </div>
     <script src="js/script.js"></script>
     <script src="js/script2.js"></script>
+    <script src="js/script3.js"></script>
 </body>
 
 </html>
