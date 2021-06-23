@@ -6,43 +6,34 @@ if ($_POST["station"]) {
  $count1=0;
  $sum=0;
  $valf="";
-    $name_sql="";
  $time_sql="";
 
  foreach ( $arr_data as $key => $val ){
      
     if($count!=0){
-        $time_sql=$time_sql.",";
-        $name_sql="(".$valf."-".$val.")";
+        $name="(".$valf."-".$val.")";
         
         $url0='https://api.ekispert.jp/v1/json/search/course/plain?key=AAHVX4RuL6EMRTeS&plane=false&shinkansen=false&bus=false&from=';
         $url1=$url0.$valf;
         $url2='&to=';
         $url=$url1.$url2.$val;
-       //echo $url;
-        //print"<BR>";
+       echo $url;
+        print"<BR>";
         $json = file_get_contents($url);
         $arr = json_decode($json, true);
-        foreach($arr['ResultSet']['Course']['Route'] as $time){
-          //  echo $time=$route;
+        foreach($arr['ResultSet']['Course']['Route'] as $route){
+            echo $time=$route['timeOnBoard'];
            // $sum+=$time;
-          //  $count1++;}
-            $time2 = $time['timeOnBoard'];
-            $time_sql="(".$time2.",".")";
-       // print"<BR>";}
+          //  $count1++;
+        print"<BR>";
         }
-        
-        //['ResultSet']['Course']['Route']中のtimeOnBoardをとれさえすれば良いのだがうまくいかない。
-    
-        print_r($name_sql);
-        print_r($time_sql);
+        // }
     }
      $count++;
-     $valf = $val;
+     //$time_sql=
      
-     print"<BR>";
+     $valf = $val;
  }
-    
 }
 ?>
 
