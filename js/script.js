@@ -9,7 +9,7 @@ function updatedata(){
   date = new Date();
   today = date.getDate();//その日の日付を取得。ここで行う必要なかったかもです。
   var request = new XMLHttpRequest();//ajaxの機能
-  request.open("POST", "dbtest/send_data.php", true);
+  request.open("POST", "dbtest/send_data.php", true);//アドレスを指定する部分だが、相対パスでも通信できる仕様のようです。
   request.responseType = 'json';//送られてくるデータ形式の指定
   request.setRequestHeader("content-type", "application/x-www-form-urlencoded;charset=UTF-8");
   request.send('select_station=' + encodeURIComponent(document.getElementById("bus_timer_select").value));
@@ -30,9 +30,10 @@ function updatedata(){
 function timer(){
   date = new Date();
   var tmp = date.getDate();
-  if(today != tmp){
+  if(today != tmp){//日付が変わったとき、データを更新
     updatedata();
   }
+  //ここから、バスの運行ダイヤによって表示を変更
   if(bus_type == "3"){
     document.querySelector("#bus_timer_time").innerHTML = "運休です";
   }
@@ -42,6 +43,7 @@ function timer(){
   else{
     if(bus_time == null){
       document.querySelector("#bus_timer_time").innerHTML = "運行終了";
+      //その日の次のバスがもう無ければ運行終了を表示
     }
     else{
       var recent = time(bus_time);//time('次のバスの時刻')で残り時間を取得
@@ -50,6 +52,7 @@ function timer(){
     var next = time(next_time);//time('次の次のバスの時刻')で残り時間を取得
     document.querySelector(".bus_timer_next_time").innerHTML = next;
   }
+  //ここまで
 }
 
 function time(schedule_time) {
