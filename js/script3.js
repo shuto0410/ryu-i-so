@@ -134,6 +134,7 @@ function clean_train_route(parent){
 }
 //経路を書き込む
 function write_user_route(user_stations){
+    let user_stations_tmp = user_stations;
     let parent = document.getElementById("route_via_frame");
     var train_clone = document.getElementById("rounte_via_elements");
     var bar_clone = document.getElementById("connect_stations");
@@ -142,15 +143,19 @@ function write_user_route(user_stations){
     let bus_station = document.getElementById("bus_timer_select");
     let bus_station_name = bus_station.options[bus_station.selectedIndex].text;
     bus_station_name = bus_station_name.replace("駅行き", "");
-    user_stations.unshift(bus_station_name);
+
+    var to_station = user_stations_tmp[0];
+    user_stations_tmp.shift();
+    user_stations_tmp.push(to_station);
+    user_stations_tmp.unshift(bus_station_name);
 
     var count = 0;
-    for(count; count < user_stations.length; count++){
+    for(count; count < user_stations_tmp.length; count++){
         var train_clone_tmp = train_clone.cloneNode(true);
         var bar_clone_tmp = bar_clone.cloneNode(true);
-        train_clone_tmp.children[1].innerHTML = user_stations[count];
+        train_clone_tmp.children[1].innerHTML = user_stations_tmp[count];
         parent.appendChild(train_clone_tmp);
-        if(count != user_stations.length - 1){
+        if(count != user_stations_tmp.length - 1){
             parent.appendChild(bar_clone_tmp);
         }
     }
@@ -189,8 +194,8 @@ var send = document.getElementById("send_to_via");
 send.addEventListener('click', function(){
     var stations_index = make_station_index();
     send_to_via(stations_index);
-    write_user_route(stations_index);
     write_user_station(stations_index);
+    write_user_route(stations_index);
 
     setTimeout('close_modal();', 2000);
     // close_modal();//モーダル非表示
