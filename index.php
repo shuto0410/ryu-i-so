@@ -11,10 +11,9 @@
     <link rel="icon" type="image/x-icon" href="images/icon.png">
     <title>Ryu-i-so | RD BUS</title>
 </head>
-
 <body>
     <header class="header">
-        <a href="index.html" class="header_logo"><img src="images/logo.png" alt="logo"></a>
+        <a href="index.php" class="header_logo"><img src="images/logo.png" alt="logo"></a>
         <nav class="header_nav">
         </nav>
     </header>
@@ -182,27 +181,75 @@
         <div class="horizontal_line outer_hl" id="hl02"></div>
 
         <section class="route">
-            <button id="open_modal">変更</button>
-
-            <div id="hidden_modal" class="hidden">
-                <div id="modalbg" class="modalbg"></div>
-                <div class="modal_content">
-                    <span id="close_modal" class="close">X</span>
-                    <div class="to_form station_form" id="to_form">
-                        <p>到着駅</p>
-                        <input type="text" maxlength="30" id="station_to" class="station_input_form" value="" placeholder="到着駅を入力" required>
+            <div class="route_via">
+                <div class="route_via_frame" id="route_via_frame">
+                    <div class="route_via_elemets" id="rounte_via_elements">
+                        <div class="route_via_time">00:00</div>
+                        <div class="route_via_station">Sample1</div>
+                        <div class="route_via_station_code">RD00</div>
                     </div>
-                    <div class="via_form station_form" id="via_form">
+                    <div class="connect_stations" id="connect_stations"></div>
+                    <div class="route_via_elemets">
+                        <div class="route_via_time">00:00</div>
+                        <div class="route_via_station">Sample2</div>
+                        <div class="route_via_station_code">RD01</div>
+                    </div>
+                    <div class="connect_stations"></div>
+                    <div class="route_via_elemets">
+                        <div class="route_via_time">00:00</div>
+                        <div class="route_via_station">Sample3</div>
+                        <div class="route_via_station_code">RD02</div>
+                    </div>
+                </div>
+            </div>
+            <div class="route_via_arrivetime">
+                <p>到着予想時刻</p>
+                <span id="route_arrive_time">00:00</span>
+            </div>
+            <div class="route_setting">
+                <div class="route_setting_stations">
+                    <div class="route_setting_stations_via user_station">
                         <p>経由駅</p>
-                        <input type="text" maxlength="30" id="station_via0" class="station_input_form" value="" placeholder="経由駅を入力">
+                        <div class="user_station_via user_station_name" id="user_station_via">
+                        </div>
                     </div>
-                    <input type="button" value="+" onclick="addForm()">
-                    <input type="button" value="-" onclick="delForm()">
-                    <button type="submit" id="send_to_via">決定</button>
+                    <div class="route_setting_stations_to user_station">
+                        <p>到着駅</p>
+                        <div class="user_station_to user_station_name">
+                            <p class="to_station_name" id="to_station_name"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn_open_modal">変更</button>
+
+                <div id="hidden_modal" class="hidden">
+                    <div id="modalbg" class="modalbg"></div>
+
+                    <div id="modal_content" class="modal_content">
+                        <span id="close_modal" class="close">×</span>
+                        <div class="to_form station_form" id="to_form">
+                            <p>到着駅</p>
+                            <input type="text" maxlength="30" id="station_to" class="station_input" placeholder="到着駅を入力" required="required">
+                            <p id="input_warning">入力必須</p>
+                        </div>
+                        <div class="via_form station_form" id="via_form">
+                            <p>経由駅</p>
+                            <div class="via_inputs" id="via_inputs">
+                                <input type="text" maxlength="30" id="station_via0" class="station_input" placeholder="経由駅を入力">
+                                <div class="input_btn_container">
+                                    <input type="button" value="+" onclick="add_form()" class="btn_change_input" id="add_via_input">
+                                    <input type="button" value="-" onclick="del_form()" class="btn_change_input" id="del_via_input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="submit_btn_container">
+                          <button type="submit" id="send_to_via" onclick="focusMethod()">決定</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
     </div>
     <script src="js/script.js"></script>
     <script src="js/script2.js"></script>

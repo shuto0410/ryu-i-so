@@ -1,5 +1,7 @@
 <?php
   ini_set('display_errors',1);
-  $to_via_statoin = $_POST['station_to_via'];
-  echo 'phpで取得された値=', $to_via_statoin;
+  $json = file_get_contents('php://input');
+  $to_via_statoin = json_decode($json);
+  header("Content-Type: application/json; charset=utf-8");
+  echo json_encode($to_via_statoin);
 ?>
