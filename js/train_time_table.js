@@ -15,8 +15,9 @@ function get_schedule() {
             if (data !== null) {
                 clean_table("down_schedule_left");
                 write_schedule(data,"down_schedule_left");
+                console.log("左後データ",data);
                 clean_table("down_schedule_right");
-                write_schedule(data," down_schedule_right");
+                write_schedule(data,"down_schedule_right");
             }
         }
     }
@@ -37,12 +38,15 @@ function write_schedule(data,table_id) {
         hours[i] = hours_tmp[i].innerText.replace("\t", "");
     }
 
-    for (let i = 0; i < data.length - 1; i++) {
+    for (let i = 0; i < data.length; i++) {
         var time = data[i].split(':');
         var index = hours.indexOf(time[0]);
-        table.rows[index].cells[1].insertAdjacentHTML('beforeend', time[1] + "&emsp;");
+        if(index >= 0)  {
+            table.rows[index].cells[1].insertAdjacentHTML('beforeend', time[1] + "&emsp;");
+        }
     }
 }
 
 window.addEventListener("load", get_schedule());
+// const select = document.getElementById("bus_timer_select");
 // select.addEventListener('change', get_schedule);
