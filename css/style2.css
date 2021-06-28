@@ -3,7 +3,7 @@
 }
 
 html{
-    background-color: #32465c;
+    background-color: #3d4a5f;
     min-width: 340px;
 }
 
@@ -30,47 +30,8 @@ header{
 
 .header_logo img{
     display: block;
-    width: 100px;
+    width: 130px;
 }
-
-.header_nav{
-    margin: 0 0 0 auto;
-}
-
-header ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-.user{
-    margin: 0 0 0 20px;
-}
-
-.header_login a{
-    text-decoration: none;
-    padding: 2px 10px;
-    border-radius: 4px;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-}
-
-.header_user{
-    display: inline-block;
-    font-size: 0;
-}
-
-.header_user img{
-    width: 36px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    margin: 0;
-    display: inline-block;
-}
-
-/*-------------------------------------------------*/
 
 .container{
     display: flex;
@@ -97,7 +58,7 @@ header ul{
 
 /*---------------------- バス ----------------------*/
 .bus{
-    width: 36%;
+    width: 30%;
     /* overflow: auto; */
 }
 
@@ -142,7 +103,7 @@ header ul{
 
 .bus_timer_time{
     margin: 30px auto;
-    font-size: clamp(6em, 7vw, 150px);
+    font-size: clamp(6em, 6vw, 150px);
 }
 
 .bus_timer_bottom{
@@ -192,13 +153,13 @@ header ul{
     width: 100%;
     border: 1px solid #ffffff;
     white-space: normal;
-    padding: 0 10px;
+    padding: 0 10px 0 20px;
 }
 /*-------------------------------------------------*/
 
 /*---------------------- 電車 ----------------------*/
 .train{
-    width: 36%;
+    width: 35%;
     overflow: auto;
 }
 
@@ -373,44 +334,318 @@ input[name="tab_btn"]{
 
 /*---------------------- 経由駅 ----------------------*/
 .route{
-    width: 20%;
+    width: 25%;
     overflow: auto;
+    float: right;
 }
 
-.route_stop{
+.route_via{
+    width: 100%;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+.route_via_frame{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border: 2px solid #3d4a5f;
+    color: #3d4a5f;
+    padding: 20px 20px;
+}
+
+.route_via_elemets{
+    display: flex;
+    margin: 0;
+    font-size: 20px;
+    align-items: center;
+}
+
+.connect_stations{
+    width: 7px;
+    height: 16px;
+    background-color: #6c7b8e;;
+    margin: 0 auto 0 26px;
+}
+
+.route_via_station{
+    margin: 0 0 0 20px;
+}
+
+.route_via_station_code{
+    border: 5px solid #9a7b8c;
+    border-radius: 12px;
+    font-size: 16px;
+    padding: 2px;
+    margin: 0 12% 0 auto;
+}
+
+.route_via_arrivetime{
+    display: flex;
+    margin: 20px 0 auto auto;
+}
+
+.route_via_arrivetime p{
+    margin: 14px 0 auto auto;
+    font-size: 20px;
+}
+
+#route_arrive_time{
+    font-size: 50px;
+    margin: 0 0 auto 10px;
+}
+
+.route_setting{
+    width: 100%;
+    margin: 30px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.route_setting_stations{
+    width: 100%;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+
+.user_station{
+    margin: 8px auto 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.user_station p{
+    width: 20%;
+    margin: 0 20px auto 0;
+}
+
+.user_station_name{
+    width: 100%;
+}
+
+.user_station_name p{
+    margin: auto auto auto 0;
+}
+
+#btn_open_modal{
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    color: #e9ff76;
+    font-size: 1em;
+    border-radius: 18px;
+    border: 2px solid #e9ff76;
+    padding: 0 25px;
+    /* display: inline-block; */
+    margin: 10px 0 0 auto;
+}
+
+#hidden_modal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.modalbg{
+    filter: blur(5px);
+}
+
+.hidden{
+    display: none;
+}
+
+.modal_content{
+    box-sizing: border-box;
+    background-color: #3d4a5f;
+    margin: 12% auto;
+    width: 800px;
+    padding: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 60px auto auto auto;
+}
+
+#close_modal{
+    color: #fff;
+    float: right;
+    font-size: 40px;
+    margin: 20px 10px 10px auto;
+    line-height: 0;
+    align-items: center;
+}
+
+#close_modal:hover,
+#close_modal:focus{
+    cursor: pointer;
+}
+
+.station_form{
     width: 100%;
     display: flex;
-    font-size: 1.6em;
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 0 40px;
 }
 
-.stop_station{
-    white-space: normal;
-    margin: 0;
+.station_form p{
+    margin: auto 0;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 5px 15px;
 }
 
-.stop_time{
-    margin: 0 10% auto auto;
+#input_warning{
+    display: none;
+    color: #dc9086;
+    border: 2px solid #dc9086;
+    padding: 3px 10px;
+    font-size: 16px;
 }
 
-.route_vertical_line{
-    background-color: #ffffff;
-    width: 2px;
-    height: 16px;
-    margin: 5px auto 5px 40px;
+.via_form p{
+    margin: 10px 0 auto 0;
+    white-space: nowrap;
+}
+
+.via_inputs{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.station_input{
+    font-size: 20px;
+    height: 42px;
+    width: 300px;
+    border: 2px solid #ffffff;
+    background-color: #626f82;
+    margin: 10px 20px;
+    color: #ffffff;
+    padding: 0 0 0 16px;
+}
+
+::placeholder{
+    color: #9ba4af;
+}
+
+.station_input:focus{
+    outline: none;
+}
+
+.station_input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px #626f82 inset;
+    -webkit-text-fill-color: #ffffff;
+    caret-color: white;
+}
+.station_input:-webkit-autofill::first-line {
+    font-size: 20px;
+}
+
+.input_btn_container{
+    position: relative;
+    left: 0%;
+    top: 0%;
+    margin: auto auto auto 10px;
+    line-height: 0;
+}
+
+.btn_change_input{
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #ffffff;
+    padding: 0 20px;
+    margin: 0 10px 0 0;
+}
+
+#del_via_input{
+    visibility: hidden;
+}
+
+.submit_btn_container{
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 2% 10% 2% auto;
+    grid-row: 4/5;
+}
+
+#send_to_via{
+    display: none;
+    height: 32px;
+    cursor: pointer;
+    outline: none;
+    background: #e9ff76;
+    box-shadow: none;
+    -webkit-appearance: none;
+    color: #3d4a5f;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 18px;
+    border: none;
+    padding: 0 25px;
+    /* margin: 0 10% 0 auto; */
+    transition: all 0.5s ease;
+    transform-origin: center bottom;
+    transform: scale(1);
+    width: 100px;
+}
+
+#send_to_via:hover{
+    background-color: #b1c159;
+}
+
+#send_to_via:before,
+#send_to_via:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#send_to_via:after{
+    background: #b1c159;
+    transform: translatex(-100%);
+}
+#send_to_via:focus{
+    font-size: 0;
+    height: 10px;
+    width: 200px;
+    border-radius: 0px;
+    background-color: white;
+}
+#send_to_via:focus:after{
+    transform: translateX(0);
+    transition: transform 1.2s cubic-bezier(0.25, 0.5, 0.75, 0.5);
+    transition-delay: 0.6s;
 }
 /*---------------------------------------------------*/
 
-@media screen and (max-width : 800px){ 
+@media screen and (max-width : 800px){
     .header_logo img{
         display: block;
         width: 90px;
-    }
-    .header_user img{
-        width: 30px;
-        border: 1px solid #ffffff;
-        border-radius: 50%;
-        margin: 0;
-        display: inline-block;
     }
     .container{
         display: flex;
@@ -451,7 +686,7 @@ input[name="tab_btn"]{
     .station_name{
         font-size: clamp(2.2em, 6vw, 4em);
     }
-    
+
     .line_direction{
         font-size: clamp(1.4em, 4vw, 2em);
     }
@@ -482,7 +717,7 @@ input[name="tab_btn"]{
     }
 }
 
-@media screen and (min-width : 801px) and (max-width : 1400px){ 
+@media screen and (min-width : 801px) and (max-width : 1400px){
     .container{
         display: grid;
         grid-template-columns: 48% 4% 48%;
@@ -505,7 +740,7 @@ input[name="tab_btn"]{
     .station_name{
         font-size: clamp(2em, 3.6vw, 4em);
     }
-    
+
     .line_direction{
         font-size: clamp(1.2em, 2vw, 2em);
     }
