@@ -100,4 +100,3 @@ window.addEventListener("load", function(){
 });
 
 setInterval('timer()', 1000);//更新
-}
