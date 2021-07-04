@@ -231,7 +231,7 @@
                         <div class="to_form station_form" id="to_form">
                             <p>到着駅</p>
                             <input type="text" maxlength="30" id="station_to" class="station_input" placeholder="到着駅を入力" required="required">
-                            <p id="input_warning">入力必須</p>
+                            <span id="input_warning" class="input_warning">入力必須</span>
                         </div>
                         <div class="via_form station_form" id="via_form">
                             <p>経由駅</p>
@@ -241,6 +241,7 @@
                                     <input type="button" value="+" onclick="add_form()" class="btn_change_input" id="add_via_input">
                                     <input type="button" value="-" onclick="del_form()" class="btn_change_input" id="del_via_input">
                                 </div>
+                                <span id="input_warning0" class="input_warning">不正な文字が含まれています</span>
                             </div>
                         </div>
                         <div class="submit_btn_container">
