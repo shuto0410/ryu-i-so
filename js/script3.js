@@ -2,6 +2,7 @@ var modal = document.getElementById("hidden_modal");
 var open = document.getElementById("btn_open_modal");
 var close = document.getElementById("close_modal");
 var input_station_to = document.getElementById("station_to");
+var station_via0 = document.getElementById("station_via0");
 var upper_limit = 3;
 var i = 1;
 
@@ -12,15 +13,15 @@ function no_scroll(event) {
 // モーダルウィンドウの表示
 function open_modal() {
     modal.classList.remove('hidden');
-    document.addEventListener('touchmove', no_scroll, {passive:false});
-    document.addEventListener('mousewheel', no_scroll, {passive:false});
+    // document.addEventListener('touchmove', no_scroll, {passive:false});
+    // document.addEventListener('mousewheel', no_scroll, {passive:false});
 }
 open.addEventListener('click', open_modal);
 // モーダルウィンドウの非表示
 function close_modal() {
     modal.classList.add('hidden');
-    document.removeEventListener('touchmove', no_scroll, {passive:false});
-    document.removeEventListener('mousewheel', no_scroll, {passive:false});
+    // document.removeEventListener('touchmove', no_scroll, {passive:false});
+    // document.removeEventListener('mousewheel', no_scroll, {passive:false});
 }
 close.addEventListener('click', close_modal);
 
@@ -35,6 +36,19 @@ function add_form() {
         input_data.classList.add('station_input');
         var parent = document.getElementById('via_inputs');
         parent.appendChild(input_data);
+
+        var warning_text = document.createElement('span');
+        warning_text.innerHTML =  "不正な文字が含まれています";
+        warning_text.classList.add('input_warning');
+        warning_text.id = 'input_warning' + i;
+        parent.appendChild(warning_text);
+
+        input_data.addEventListener('input', function(){
+            var flg;
+            flg = check_string(this.value);
+            change_waring(flg, warning_text.id);
+        });
+
         i++ ;
         if(i == upper_limit + 1){
             document.getElementById("add_via_input").style.visibility = "hidden";
@@ -47,10 +61,16 @@ function add_form() {
 //入力フォームの削除
 function del_form() {
     if(1 < i){
-        var id = 'station_via' + (i - 1);
+        var id = "station_via" + (i - 1);
+        var warning_id = "input_warning" + (i - 1);
+
         const classclear = document.getElementById(id);
         classclear.classList.remove('station_input');
         classclear.remove();
+
+        const classclear_warning = document.getElementById(warning_id);
+        classclear_warning.classList.remove('input_warning');
+        classclear_warning.remove();
         i--;
         if(i == upper_limit){
             document.getElementById("add_via_input").style.visibility = "visible";
@@ -62,22 +82,63 @@ function del_form() {
 }
 
 
-function check_string($this){
-    let string = $this.value;
+//入力されている値をチェック
+function check_string(string){
+    if(string == "") return -1;
+    else{
+        let reg = new RegExp(/[!"#$%&¥'()\*\+\-\.,\/:;<=>?@\；：「」＠”’、。・＿[\\\]^_`{|}~]/g);
+        if(reg.test(string)) return 0;
+        else return 1;
+    }
 }
-
-function change_display(){
-    if(input_station_to.value != ""){
+//check_stringの値によって表示内容を切り替える
+function change_display(flg){
+    if(flg == 1){
         document.getElementById("input_warning").style.display = "none";
         document.getElementById("send_to_via").style.display = "block";
     }
     else{
+        if(flg == -1){
+            document.getElementById("input_warning").innerHTML = "入力必須";
+        }
+        else{
+            document.getElementById("input_warning").innerHTML = "不正な文字が含まれています";
+        }
         document.getElementById("input_warning").style.display = "block";
         document.getElementById("send_to_via").style.display = "none";
     }
 }
+//入力欄の入力を検出
+input_station_to.addEventListener('input', function(){
+    var flg;
+    flg = check_string(this.value);
+    change_display(flg);
+});
 
-input_station_to.addEventListener('change', change_display);
+
+function change_waring(flg, id){
+    var tmp = document.getElementById(id);
+    if(flg == 0){
+        tmp.style.display = "block";
+        document.getElementById("send_to_via").style.display = "none";
+    }
+    else {
+        tmp.style.display = "none";
+        for(let j = 0; j < i; j++){
+            var warning_id = document.getElementById("input_warning" + j);
+            if(warning_id.style.display == "block"){
+                return;
+            }
+        }
+        document.getElementById("send_to_via").style.display = "block";
+    }
+}
+station_via0.addEventListener('input', function(){
+    var flg;
+    flg = check_string(this.value);
+    change_waring(flg, "input_warning0");
+});
+
 
 function make_station_index(){
     var to_station = document.getElementById("station_to").value;
