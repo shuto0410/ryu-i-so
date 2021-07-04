@@ -114,7 +114,7 @@
                     <div class="train_suchedule_panel">
                         <div class="schedule_panel" id="panel1">
                             <div class="grid_panel">
-                                <table class="train_schedule1 t_sche">
+                                <table class="train_schedule1 t_sche" id="down_schedule_left">
                                     <?php
                                     for($i = 4; $i <= 14; $i++){
                                       print("<tr>");
@@ -127,7 +127,7 @@
                                     ?>
                                 </table>
                                 <div class="vertical_line"></div>
-                                <table class="train_schedule2 t_sche">
+                                <table class="train_schedule2 t_sche" id="down_schedule_right">
                                     <?php
                                     for($i = 15; $i <= 24; $i++){
                                       print("<tr>");
@@ -251,10 +251,11 @@
             </div>
         </section>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/script2.js"></script>
     <script src="js/script3.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/train_time_table.js"></script>
 </body>
 
 </html>
