@@ -52,7 +52,7 @@
             <div class="bus_schedule">
                 <div class="bus_schedule_title">
                     <p>大学発</p>
-                    <p class="destination">高坂駅行き</p>
+                    <p class="destination" >高坂駅行き</p>
                 </div>
                 <table class="bus_schedule_table">
                     <?php
@@ -76,7 +76,7 @@
             <div class="departure_station">
                 <div class="departure_station_top">
                     <div class="line_direction" id="line_left">寄居方面</div>
-                    <div class="station_name">高坂駅</div>
+                    <div class="station_name" id = "station_name">高坂駅</div>
                     <div class="line_direction" id="line_right">池袋方面</div>
                 </div>
 
@@ -84,16 +84,16 @@
 
                 <div class="train_time">
                     <div class="train_left">
-                        <p class="train_type" id="train_left_type">準急　森林公園行</p>
+                        <p class="train_type" id="train_left_type">処理中</p>
                         <div class="train_time_time">
-                            <p class="train_departure_time" id="left_time">13:00</p>
+                            <p class="train_departure_time" id="left_time">処理中</p>
                             <span>発</span>
                         </div>
                     </div>
                     <div class="train_right">
-                        <p class="train_type" id="train_right_type">急行　池袋行</p>
+                        <p class="train_type" id="train_right_type">処理中</p>
                         <div class="train_time_time">
-                            <p class="train_departure_time" id="right_time">13:00</p>
+                            <p class="train_departure_time" id="right_time">処理中</p>
                             <span>発</span>
                         </div>
                     </div>
@@ -132,8 +132,7 @@
                                     for($i = 15; $i <= 24; $i++){
                                       print("<tr>");
                                       print("<th>");
-                                      if($i == 24) print("00");
-                                      else printf("%02d", $i);
+                                      printf("%02d", $i);
                                       print("</th>");
                                       print("<td></td>");
                                       print("</tr>");
@@ -144,7 +143,7 @@
                         </div>
                         <div class="schedule_panel" id="panel2">
                             <div class="grid_panel">
-                                <table class="train_schedule1 t_sche">
+                                <table class="train_schedule1 t_sche" id="up_schedule_right">
                                     <?php
                                     for($i = 4; $i <= 14; $i++){
                                       print("<tr>");
@@ -157,13 +156,12 @@
                                     ?>
                                 </table>
                                 <div class="vertical_line"></div>
-                                <table class="train_schedule2 t_sche">
+                                <table class="train_schedule2 t_sche" id="up_schedule_left">
                                     <?php
                                     for($i = 15; $i <= 24; $i++){
                                       print("<tr>");
                                       print("<th>");
-                                      if($i == 24) print("00");
-                                      else printf("%02d", $i);
+                                      printf("%02d", $i);
                                       print("</th>");
                                       print("<td></td>");
                                       print("</tr>");

@@ -2,6 +2,7 @@ var bus_time;
 var bus_type;
 
 var data;
+console.log("script2",data);
 function get_schedule(){
   var request = new XMLHttpRequest();
   request.open("POST", "dbtest/bus_schedule.php", true);

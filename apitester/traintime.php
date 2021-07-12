@@ -1,6 +1,23 @@
 <?php
 if ($_POST['station']) {
     $station = $_POST['station'];//77行からのPOSTで送られてきた駅名
+    switch ($station) {
+        case "高坂":
+            $station_code = 0;
+            break;
+        case "北坂戸":
+            $station_code = 1;
+            break;
+        case "熊谷":
+            $station_code = 2;
+            break;
+        case "鴻巣":
+            $station_code = 3;
+            break;
+        
+        default:
+            break;
+    }
     $url1 = 'https://api.ekispert.jp/v1/json/operationLine/timetable?key=AAHVX4RuL6EMRTeS&stationName=';
     $url = $url1 . $station; //連結させて「stationName=指定した駅名」 のurlにする
     $json = file_get_contents($url);//APIでデータを取得。
@@ -8,7 +25,7 @@ if ($_POST['station']) {
     $json_count = count($arr["ResultSet"]["TimeTable"]);//指定した駅に何種類線が通っているかを確認。
     $name = $arr['ResultSet']['TimeTable'][0]['Station']['Name'];//指定した駅名。
 
-
+    $i =0;
     foreach($arr['ResultSet']['TimeTable'] as $train_data){
         $train_data_sql = "";
         // print_r($train_data);
@@ -34,6 +51,7 @@ if ($_POST['station']) {
         print_r($line_sql);
         echo "<br>";
         $count=0;
+        // TODO:とりあえず全部高坂
         foreach($arr2['ResultSet']['TimeTable']['LineDestination'] as $train_kind){
             // echo $train_kind['text'].":".$train_kind['code']."<br>";
             if ($count!=0) {
@@ -55,11 +73,12 @@ if ($_POST['station']) {
                 }
                 $count++;
                 // echo $train_time['Hour'].":".str_pad($train_time_Minute['Minute'], 2, 0, STR_PAD_LEFT).'種別コード'.$train_time_Minute['Stop']['kindCode'].'方面コード'.$train_time_Minute['Stop']['destinationCode']."<br>";
-                $train_data_sql = $train_data_sql."(".$train_time['Hour'].":".str_pad($train_time_Minute['Minute'], 2, 0, STR_PAD_LEFT).",".$train_time_Minute['Stop']['kindCode'].",".$train_time_Minute['Stop']['destinationCode'].")";
+                $train_data_sql = $train_data_sql."(\"".$train_time['Hour'].":".str_pad($train_time_Minute['Minute'], 2, 0, STR_PAD_LEFT)."\",".$train_time_Minute['Stop']['kindCode'].",".$train_time_Minute['Stop']['destinationCode'].",".$station_code.",".$i.")";
             }
         }
         print_r($train_data_sql);
         echo "<br>";
+        $i++;
     }
     }
 ?>

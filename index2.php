@@ -48,13 +48,13 @@
                 </div>
                 <table class="bus_schedule_table">
                     <?php
-                    for($i = 8; $i <= 22; $i++){
-                      print("<tr>");
-                      print("<th>");
-                      printf("%02d", $i);
-                      print("</th>");
-                      print("<td></td>");
-                      print("</tr>");
+                    for ($i = 8; $i <= 22; $i++) {
+                        print("<tr>");
+                        print("<th>");
+                        printf("%02d", $i);
+                        print("</th>");
+                        print("<td></td>");
+                        print("</tr>");
                     }
                     ?>
                 </table>
@@ -108,27 +108,27 @@
                             <div class="grid_panel">
                                 <table class="train_schedule1 t_sche" id="down_schedule_left">
                                     <?php
-                                    for($i = 4; $i <= 14; $i++){
-                                      print("<tr>");
-                                      print("<th>");
-                                      printf("%02d", $i);
-                                      print("</th>");
-                                      print("<td></td>");
-                                      print("</tr>");
+                                    for ($i = 4; $i <= 14; $i++) {
+                                        print("<tr>");
+                                        print("<th>");
+                                        printf("%02d", $i);
+                                        print("</th>");
+                                        print("<td></td>");
+                                        print("</tr>");
                                     }
                                     ?>
                                 </table>
                                 <div class="vertical_line"></div>
                                 <table class="train_schedule2 t_sche" id="down_schedule_right">
                                     <?php
-                                    for($i = 15; $i <= 24; $i++){
-                                      print("<tr>");
-                                      print("<th>");
-                                      if($i == 24) printf("00", $i);
-                                      else printf("%02d", $i);
-                                      print("</th>");
-                                      print("<td></td>");
-                                      print("</tr>");
+                                    for ($i = 15; $i <= 24; $i++) {
+                                        print("<tr>");
+                                        print("<th>");
+                                        if ($i == 24) printf("00", $i);
+                                        else printf("%02d", $i);
+                                        print("</th>");
+                                        print("<td></td>");
+                                        print("</tr>");
                                     }
                                     ?>
                                 </table>
@@ -136,29 +136,30 @@
                         </div>
                         <div class="schedule_panel" id="panel2">
                             <div class="grid_panel">
-                                <table class="train_schedule1 t_sche">
+                                <table class="train_schedule1 t_sche" id="up_schedule_left">
                                     <?php
-                                    for($i = 4; $i <= 14; $i++){
-                                      print("<tr>");
-                                      print("<th>");
-                                      printf("%02d", $i);
-                                      print("</th>");
-                                      print("<td></td>");
-                                      print("</tr>");
+                                    for ($i = 4; $i <= 14; $i++) {
+                                        print("<tr>");
+                                        print("<th>");
+                                        printf("%02d", $i);
+                                        print("</th>");
+                                        print("<td></td>");
+                                        print("</tr>");
                                     }
                                     ?>
                                 </table>
-                                <div class="vertical_line"></div>
-                                <table class="train_schedule2 t_sche">
+                                <div class="vertical_line">
+                            </div>
+                            <table class="train_schedule2 t_sche" id="up_schedule_right">
                                     <?php
-                                    for($i = 15; $i <= 24; $i++){
-                                      print("<tr>");
-                                      print("<th>");
-                                      if($i == 24) print("00");
-                                      else printf("%02d", $i);
-                                      print("</th>");
-                                      print("<td></td>");
-                                      print("</tr>");
+                                    for ($i = 15; $i <= 24; $i++) {
+                                        print("<tr>");
+                                        print("<th>");
+                                        if ($i == 24) print("00");
+                                        else printf("%02d", $i);
+                                        print("</th>");
+                                        print("<td></td>");
+                                        print("</tr>");
                                     }
                                     ?>
                                 </table>
@@ -169,35 +170,35 @@
             </div>
         </section>
 
-        <div class="vertical_line" id="vl02"></div>
-        <div class="horizontal_line outer_hl" id="hl02"></div>
+        <div class=" vertical_line" id="vl02">
+                        </div>
+                        <div class="horizontal_line outer_hl" id="hl02"></div>
 
-        <section class="route">
-            <div class="route_stop">
-                <div class="stop_station">高坂駅まで</div>
-                <div class="stop_time">00:17:52</div>
-            </div>
-            <div class="route_vertical_line"></div>
-            <div class="route_stop">
-                <div class="stop_station">池袋駅まで</div>
-                <div class="stop_time">00:53:52</div>
-            </div>
-            <div class="route_vertical_line"></div>
-            <div class="route_stop">
-                <div class="stop_station">東京駅まで</div>
-                <div class="stop_time">01:09:52</div>
-            </div>
-            <div class="route_vertical_line"></div>
-            <div class="route_stop">
-                <div class="stop_station">鎌倉駅まで</div>
-                <div class="stop_time">02:07:52</div>
-            </div>
-        </section>
-    </div>
-    <button  id = "sel">ボタン</button>
-    <!-- <script src="js/script.js"></script> -->
-    <!-- <script src="js/script2.js"></script> -->
-    <script src="js/train_time_table.js"></script>
+                        <section class="route">
+                            <div class="route_stop">
+                                <div class="stop_station">高坂駅まで</div>
+                                <div class="stop_time">00:17:52</div>
+                            </div>
+                            <div class="route_vertical_line"></div>
+                            <div class="route_stop">
+                                <div class="stop_station">池袋駅まで</div>
+                                <div class="stop_time">00:53:52</div>
+                            </div>
+                            <div class="route_vertical_line"></div>
+                            <div class="route_stop">
+                                <div class="stop_station">東京駅まで</div>
+                                <div class="stop_time">01:09:52</div>
+                            </div>
+                            <div class="route_vertical_line"></div>
+                            <div class="route_stop">
+                                <div class="stop_station">鎌倉駅まで</div>
+                                <div class="stop_time">02:07:52</div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- <script src="js/script.js"></script> -->
+                    <!-- <script src="js/script2.js"></script> -->
+                    <script src="js/train_time_table.js"></script>
 </body>
 
 </html>
