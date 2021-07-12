@@ -20,7 +20,7 @@ header{
     margin: 0px 20px 0px;
     display: flex;
     align-items: flex-end;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
 }
 
 .header_logo{
@@ -48,7 +48,7 @@ header{
 
 .vertical_line{
     background-color: #ffffff;
-    width: 1px;
+    width: 2px;
     margin: 0 auto;
 }
 
@@ -86,6 +86,10 @@ header{
     display: inline-block;
 }
 
+option{
+  color: #3d4a5f;
+}
+
 .bus_timer_top{
     display: flex;
     align-items: flex-end;
@@ -103,7 +107,7 @@ header{
 
 .bus_timer_time{
     margin: 30px auto;
-    font-size: clamp(6em, 6vw, 150px);
+    font-size: clamp(4.6em, 6vw, 150px);
 }
 
 .bus_timer_bottom{
@@ -264,9 +268,11 @@ input[name="tab_btn"]{
 
 #tb1{
     border-right: 1px solid #ffffff;
+    color: #a0a4ab;
 }
 #tb2{
     border-left: 1px solid #ffffff;
+    color: #a0a4ab;
 }
 
 #tab1:checked ~ #tb2{
@@ -279,6 +285,8 @@ input[name="tab_btn"]{
 #tab1:checked ~ .tab #tb1,
 #tab2:checked ~ .tab #tb2{
     border: none;
+    background-color: transparent;
+    color: #ffffff;
 }
 
 .train_suchedule_panel{
@@ -312,6 +320,7 @@ input[name="tab_btn"]{
 }
 .grid_panel div{
     grid-column: 2/3;
+    width: 1px;
 }
 .train_schedule2{
     grid-column: 3/4;
@@ -514,7 +523,7 @@ input[name="tab_btn"]{
 .input_warning{
     width: fit-content;
     height: fit-content;
-    margin: 0 auto 0 90px;
+    margin: auto auto auto 0;
     display: none;
     color: #dc9086;
     border: 2px solid #dc9086;
@@ -532,6 +541,10 @@ input[name="tab_btn"]{
 .via_inputs{
     display: grid;
     flex-wrap: wrap;
+}
+
+.via_inputs span{
+    margin: 0 auto 0 90px;
 }
 
 .station_input{
@@ -790,10 +803,10 @@ input[name="tab_btn"]{
     }
 }
 
-@media screen and (min-width : 801px) and (max-width : 1400px){
+@media screen and (min-width : 801px) and (max-width : 1200px){
     .container{
         display: grid;
-        grid-template-columns: 48% 4% 48%;
+        grid-template-columns: 46% 8% 46%;
         grid-template-rows: 1fr auto 1fr;
     }
     .bus{
@@ -803,7 +816,7 @@ input[name="tab_btn"]{
     }
     .bus_timer_time{
         margin: 30px auto;
-        font-size: clamp(5em, 10vw, 8em);
+        font-size: clamp(5em, 9.5vw, 8em);
     }
     .train{
         grid-column: 3/4;
@@ -839,7 +852,6 @@ input[name="tab_btn"]{
     }
     .route{
         width: 100%;
-        white-space: normal;
         grid-column: 1/2;
         grid-row: 3/4;
     }
