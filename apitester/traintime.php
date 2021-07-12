@@ -25,7 +25,7 @@ if ($_POST['station']) {
     $json_count = count($arr["ResultSet"]["TimeTable"]);//指定した駅に何種類線が通っているかを確認。
     $name = $arr['ResultSet']['TimeTable'][0]['Station']['Name'];//指定した駅名。
 
-    $i =0;
+    $i =-3;
     foreach($arr['ResultSet']['TimeTable'] as $train_data){
         $train_data_sql = "";
         // print_r($train_data);
