@@ -86,7 +86,7 @@ function del_form() {
 function check_string(string){
     if(string == "") return -1;
     else{
-        let reg = new RegExp(/[!"#$%&¥'()\*\+\-\.,\/:;<=>?@\；：「」＠”’、。・＿[\\\]^_`{|}~]/g);
+        let reg = new RegExp(/[!"#$%&¥'\*\+\-\.,\/:;<=>?@\；：「」＠”’、。＿[\\\]^_`{|}~]/g);
         if(reg.test(string)) return 0;
         else return 1;
     }
@@ -124,6 +124,8 @@ function change_waring(flg, id){
     }
     else {
         tmp.style.display = "none";
+        var warning_id = document.getElementById("input_warning");
+        if(warning_id.style.display == "block") return;
         for(let j = 0; j < i; j++){
             var warning_id = document.getElementById("input_warning" + j);
             if(warning_id.style.display == "block"){
